@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ADO.NET-leverantören för SQLite -->
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.13" />
+    <!-- Läser appsettings.json (samma som i hero_databas) -->
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Kopieras till bin-mappen så att appen hittar den när den körs -->
+    <None Update="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="billie_eilish.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Lägg din databasfil som MusikApp/musik.db, så följer den med när du kör från Visual Studio också. -->
+    <None Update="musik.db" CopyToOutputDirectory="PreserveNewest" Condition="Exists('musik.db')" />
+  </ItemGroup>
+
+</Project>

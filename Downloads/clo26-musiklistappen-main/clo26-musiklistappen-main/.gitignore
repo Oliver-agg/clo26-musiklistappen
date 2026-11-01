@@ -1,0 +1,17 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+# Din .db-fil får följa med i repot, men inte SQLites tillfälliga filer:
+*.db-journal
+*.db-wal
+*.db-shm
+
+# appsettings.json ska normalt INTE checkas in (se hero_databas, labb 1).
+# I den här mallen följer en färdig fil ändå med så att appen fungerar direkt efter forken,
+# och den innehåller bara databasens filnamn, inga hemligheter.
+# OBS: .gitignore påverkar inte filer som redan spåras. Lägger du ett lösenord i filen:
+#   git rm --cached MusikApp/appsettings.json
+# Då slutar git följa den, och bara appsettings.example.json ligger kvar i repot.
+MusikApp/appsettings.json
